@@ -545,3 +545,15 @@
 ;; Activate theme
 (color-theme-twilight)
 (require 'twittering-mode)
+  ;;(setq twittering-icon-mode t)
+  ;;(setq twittering-timer-interval 300)
+  ;;(setq twittering-tmp-dir "~/.emacs.d/tmp")
+
+(defun twittering-friends-refresh ()
+  (interactive)
+  (twittering-mode)
+  (twittering-friends-timeline))
+  
+(global-set-key "\C-x\C-t" 'twittering-friends-refresh)
+
+(if (file-exists-p "~/.emacs.d/.passwords") (load ".passwords"))
