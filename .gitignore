@@ -5,4 +5,7 @@ places
 .DS_Store
 
 /#topfunky.el#
+.#justin.el
 /url/cookies
+.passwords
+auto-save-list
