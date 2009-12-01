@@ -543,6 +543,5 @@
 ;;; theme-end
 
 ;; Activate theme
-;;(color-theme-helvetica)
-;; (color-theme-emacs-21)
 (color-theme-twilight)
+(require 'twittering-mode)
