@@ -77,9 +77,6 @@
 (textmate-mode)
 (require 'whitespace)
 
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/rspec-mode"))
-(require 'rspec-mode)
-
 ;; Major Modes
 
 ;; Javascript
@@ -87,7 +84,8 @@
 
 ;; Remove scrollbars and make hippie expand
 ;; work nicely with yasnippet
-(scroll-bar-mode -1)
+;; (scroll-bar-mode -1)
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (require 'hippie-exp)
 (setq hippie-expand-try-functions-list
       '(yas/hippie-try-expand
@@ -124,6 +122,9 @@
 (define-key rinari-minor-mode-map [(control meta shift left)] 'rinari-find-controller)
 (define-key rinari-minor-mode-map [(control meta shift up)] 'rinari-find-model)
 (define-key rinari-minor-mode-map [(control meta shift right)] 'rinari-find-view)
+
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/rspec-mode"))
+(require 'rspec-mode)
 
 ;; Custom task for PeepCode publishing
 (defun rake-generate-html ()
@@ -243,19 +244,6 @@
 (prefer-coding-system 'utf-8)
 
 (server-start)
-
-;; Experimentation
-;; TODO Move to separate theme file.
-
-;;; theme-start
-(defun topfunky-reload-theme ()
-  "Reload init.el and the color-theme-helvetica"
-  (interactive)
-  (save-buffer)
-  (eval-buffer)
-  (color-theme-helvetica))
-
-(global-set-key [f8] 'topfunky-reload-theme)
 
 ;; Activate theme
 (color-theme-twilight)
