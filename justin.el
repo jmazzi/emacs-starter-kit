@@ -1,10 +1,9 @@
-;; DESCRIPTION: topfunky settings
+;; DESCRIPTION: justin settings
 
 ;; Manually set PATH for use by eshell, rspec-mode, etc.
 (let ((path))
-  (setq path (concat "/opt/ruby-enterprise/bin:"
-                     "~/bin:"
-                     "~/src/homebrew/bin:"
+  (setq path (concat "~/bin:"
+                     "~/local/bin:"
                      "/usr/local/bin:"
                      "/usr/bin"))
   (setenv "PATH" path))
