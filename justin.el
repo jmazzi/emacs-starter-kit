@@ -224,11 +224,17 @@
 (global-set-key [(control \])] 'indent-rigidly)
 
 ;; Other
-
 (prefer-coding-system 'utf-8)
-
 (server-start)
 
+;; window / frame size
+;;(if window-system
+;;  (add-to-list 'initial-frame-alist (cons 'width 200))
+;;  (add-to-list 'initial-frame-alist (cons 'height 100))
+;;  (add-to-list 'default-frame-alist (cons 'width 200))
+;;  (add-to-list 'default-frame-alist (cons 'height 100)))
+;;(setq default-frame-alist '((width . 80) (height . 55) (menu-bar-lines . 1))')
+;;(setq initial-frame-alist '((width . 80) (height . 55) (menu-bar-lines . 1))')
 ;; Activate theme
 (color-theme-twilight)
 (require 'twittering-mode)
@@ -242,6 +248,10 @@
 
 (if (file-exists-p "~/.emacs.d/.passwords") (load ".passwords"))
 
+(defun ruby-reindent-then-newline-and-indent () 
+    (interactive) 
+      (call-interactively 'reindent-then-newline-and-indent)) 
+
 (add-hook 'ruby-mode-hook
           (lambda ()
             (add-hook 'local-write-file-hooks
@@ -254,3 +264,5 @@
             (require 'ruby-electric)
             (ruby-electric-mode t)))
 
+(add-to-list 'default-frame-alist '(width . 220))
+(add-to-list 'default-frame-alist '(height . 60))
